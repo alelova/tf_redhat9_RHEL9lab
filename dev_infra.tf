@@ -13,7 +13,7 @@ provider "aws" {
 
 resource "aws_default_vpc" "default" {}
 
-resource "aws_subnet" "Public102" {
+resource "aws_subnet" "redhat9_102" {
   vpc_id     = aws_default_vpc.default.id
   cidr_block = "172.31.102.0/24"
 

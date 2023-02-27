@@ -4,20 +4,20 @@
 # and the empty group hashicorp.
 groups:
   - ubuntu: [root,sys]
-  - hashicorp
+  - student
 
 # Add users to the system. Users are added after groups are added.
 users:
   - default
-  - name: terraform
-    gecos: terraform
+  - name: student
+    gecos: student
     shell: /bin/bash
-    primary_group: hashicorp
+    primary_group: student
     sudo: ALL=(ALL) NOPASSWD:ALL
-    groups: users, admin
+    groups: users, admin, wheel
     lock_passwd: false
     ssh_authorized_keys:
-      - ssh-rsa AAAAHHHHHH
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDe4mFT9BT+NbRcLsW8h/ooq8NjZLFS46Bab22BXAXBx6zTUQdBlnXj2QS8k2Skk2L/qWmQP0M19fsOrVKn28S0zGonD0BdLBzllfMVihIB7qa+sNh3Nab/gOvfKWCloKdzRBEWU1UIpYQLjDRUZxVbtpPmlJjsE9lGYKJS66tV5LIN4N382xxT2fqf5aCACYAtb9OCkr0CxO6R0CDTTQnd3NdPT7t5444EevckID46lyICmU1oxmmLHsu55mc46QGPPQT2zaG++4Z+syuXPPbKS6Cc+DAiH0ttzkDDVfX5K/8ROdmxpfnuJ1BgP+gb8iitkVsCU1Icf4KFm7ttPIxQtRqRSsm2s1IYx4Xzp4nxUJ+28U2xuZS5tr5gRFiwhOpKn9+vvkiK2m4SK3aeD41mbD1zUomrMAsUXQvriIQtpYn4tM0+BkqkQQ9NimXsJEnc98uWwEf4LqhQetJrtGwF9lEycNGe+1MyH2WndBT4PlgQv5YfzVsx7KfbVKq+JHk= ubuntu@aleworkstation
 
 # Downloads the golang package
 packages:
@@ -31,4 +31,5 @@ runcmd:
   - export GOPATH=/home/terraform/go
   - go get github.com/hashicorp/learn-go-webapp-demo
   - echo '172.31.1.33 puppet' | sudo tee -a /etc/hosts
+  - echo '23 14 * * * root /usr/bin/shutdown -h now' | sudo tee -a /etc/cron.d/autoshutdown
 

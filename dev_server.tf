@@ -1,6 +1,6 @@
 variable "default_instance_type" {
   type    = string
-  default = "t2.nano"
+  default = "t2.micro"
 }
 variable "default_web_subnet"{
   type = string
@@ -11,8 +11,8 @@ data "template_file" "user_data" {
 }
 
 
-resource "aws_instance" "lab-rh9-0001" {
-  ami                            = "ami-068638f6d6b1f"
+resource "aws_instance" "lab-rh9-001" {
+  ami                            = "ami-03f255060aa887525"
   instance_type                  = var.default_instance_type
   key_name                       = var.miaws_key
   vpc_security_group_ids         = [aws_security_group.redhat9_sg.id]
@@ -21,13 +21,13 @@ resource "aws_instance" "lab-rh9-0001" {
   user_data                      = data.template_file.user_data.rendered
 
   tags = { 
-    Name = "redhat9-0001"
+    Name = "lab-rht9-001"
     "Terraform" = "true"
   }
 }
 
-resource "aws_instance" "lab-rh9-0002" {
-  ami                            = "ami-068638f6d6b1f"
+resource "aws_instance" "lab-rh9-002" {
+  ami                            = "ami-03f255060aa887525"
   instance_type                  = var.default_instance_type
   key_name                       = var.miaws_key
   vpc_security_group_ids         = [aws_security_group.redhat9_sg.id]
@@ -36,7 +36,7 @@ resource "aws_instance" "lab-rh9-0002" {
   user_data                      = data.template_file.user_data.rendered
 
   tags = { 
-    Name = "redhat9-0001"
+    Name = "lab-rh9-002"
     "Terraform" = "true"
   }
 }
