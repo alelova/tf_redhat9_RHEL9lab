@@ -21,7 +21,7 @@ resource "aws_instance" "lab-rh9-001" {
   user_data                      = data.template_file.user_data.rendered
 
   tags = { 
-    Name = "lab-rht9-001"
+    Name = "lab-rh9-001"
     "Terraform" = "true"
   }
 }

@@ -25,11 +25,9 @@ packages:
 
 # Sets the GOPATH & downloads the demo payload
 runcmd:
-  - sudo su terraform
-  - sudo mkdir /home/terraform/go
-  - sudo chown terraform:hashicorp /home/terraform/go
-  - export GOPATH=/home/terraform/go
-  - go get github.com/hashicorp/learn-go-webapp-demo
+  - sudo su student
+  - sudo mkdir /home/strudent/go
+  - sudo chown student /home/terraform/go
   - echo '172.31.1.33 puppet' | sudo tee -a /etc/hosts
-  - echo '23 14 * * * root /usr/bin/shutdown -h now' | sudo tee -a /etc/cron.d/autoshutdown
+  - echo '53 23 * * * root /usr/sbin/shutdown -h now' | sudo tee -a /etc/cron.d/autoshutdown
 
