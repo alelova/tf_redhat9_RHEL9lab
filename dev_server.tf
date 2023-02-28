@@ -40,3 +40,29 @@ resource "aws_instance" "lab-rh9-002" {
     "Terraform" = "true"
   }
 }
+resource "aws_ebs_volume" "data-lab-rh9-001" {
+# availability_zone = "ap-south-1a"
+ size = 1
+ tags = {
+        Name = "data-lab-rh9-001"
+ }
+}
+#
+resource "aws_volume_attachment" "va_data-lab-rh9-001" {
+ device_name = "/dev/sdc"
+ volume_id = "${aws_ebs_volume.data-lab-rh9-001}"
+ instance_id = "${aws_instance.lab-rh9-001}"
+}
+resource "aws_ebs_volume" "data-lab-rh9-002" {
+# availability_zone = "ap-south-1a"
+ size = 1
+ tags = {
+        Name = "data-lab-rh9-002"
+ }
+}
+#
+resource "aws_volume_attachment" "va_data-lab-rh9-002" {
+ device_name = "/dev/sdc"
+ volume_id = "${aws_ebs_volume.data-lab-rh9-002}"
+ instance_id = "${aws_instance.lab-rh9-002}"
+}
