@@ -13,6 +13,7 @@ data "template_file" "user_data" {
 
 resource "aws_instance" "lab-rh9-001" {
   ami                            = "ami-03f255060aa887525"
+  availability_zone = "eu-central-1c"
   instance_type                  = var.default_instance_type
   key_name                       = var.miaws_key
   vpc_security_group_ids         = [aws_security_group.redhat9_sg.id]
@@ -28,6 +29,7 @@ resource "aws_instance" "lab-rh9-001" {
 
 resource "aws_instance" "lab-rh9-002" {
   ami                            = "ami-03f255060aa887525"
+  availability_zone = "eu-central-1c"
   instance_type                  = var.default_instance_type
   key_name                       = var.miaws_key
   vpc_security_group_ids         = [aws_security_group.redhat9_sg.id]
@@ -41,28 +43,27 @@ resource "aws_instance" "lab-rh9-002" {
   }
 }
 resource "aws_ebs_volume" "data-lab-rh9-001" {
-# availability_zone = "ap-south-1a"
- size = 1
- tags = {
+  availability_zone = "eu-central-1c"
+  size = 1
+  tags = {
         Name = "data-lab-rh9-001"
  }
 }
-#
 resource "aws_volume_attachment" "va_data-lab-rh9-001" {
- device_name = "/dev/sdc"
- volume_id = "${aws_ebs_volume.data-lab-rh9-001}"
- instance_id = "${aws_instance.lab-rh9-001}"
+  device_name = "/dev/sdc"
+  volume_id = "${aws_ebs_volume.data-lab-rh9-001.id}"
+  instance_id = "${aws_instance.lab-rh9-001.id}"
 }
+
 resource "aws_ebs_volume" "data-lab-rh9-002" {
-# availability_zone = "ap-south-1a"
- size = 1
- tags = {
+  availability_zone = "eu-central-1c"
+  size = 1
+  tags = {
         Name = "data-lab-rh9-002"
  }
 }
-#
 resource "aws_volume_attachment" "va_data-lab-rh9-002" {
- device_name = "/dev/sdc"
- volume_id = "${aws_ebs_volume.data-lab-rh9-002}"
- instance_id = "${aws_instance.lab-rh9-002}"
+  device_name = "/dev/sdc"
+  volume_id = "${aws_ebs_volume.data-lab-rh9-002.id}"
+  instance_id = "${aws_instance.lab-rh9-002.id}"
 }
