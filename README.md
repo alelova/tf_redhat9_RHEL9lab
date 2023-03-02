@@ -12,6 +12,7 @@ Prerequisites.
   - clone the repo 
   
 Set up your RHEL9 laboratory in aws with terraform.
+i - Add your public (.ssh/id_rsa.pub) id in /scripts/default_server.yaml
   - run > terraform apply
   - run ./toolkit/set_hostnames.sh to config hostnames in local workstation and servers.
   - run ./toolkit/set_services.sh  to config services in serverb (NFS) and practice from servera 
