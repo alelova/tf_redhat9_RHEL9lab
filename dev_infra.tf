@@ -40,6 +40,12 @@ resource "aws_security_group" "redhat9_sg"{
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    from_port   = 2049
+    to_port     = 2049
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     from_port = -1
     to_port   = -1
     protocol  = "icmp"
