@@ -14,6 +14,7 @@ provider "aws" {
 resource "aws_default_vpc" "default" {}
 
 resource "aws_subnet" "redhat9_102" {
+  availability_zone = "eu-central-1c"
   vpc_id     = aws_default_vpc.default.id
   cidr_block = "172.31.102.0/24"
 
