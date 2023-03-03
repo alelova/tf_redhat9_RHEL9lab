@@ -28,6 +28,6 @@ runcmd:
   - sudo su student
   - sudo mkdir /home/strudent/go
   - sudo chown student /home/terraform/go
-  - echo '172.31.1.33 puppet' | sudo tee -a /etc/hosts
-  - echo '53 23 * * * root /usr/sbin/shutdown -h now' | sudo tee -a /etc/cron.d/autoshutdown
+  - echo "172.31.1.33 puppet" | sudo tee -a /etc/hosts
+  - echo -e "53 23 * * * root /usr/sbin/shutdown -h now \n" | sudo tee -a /etc/cron.d/autoshutdown
 

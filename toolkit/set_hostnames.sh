@@ -5,6 +5,7 @@ sudo sed  -i '/server/d' /etc/hosts
 echo $servera | sudo tee --append /etc/hosts
 echo $serverb | sudo tee --append /etc/hosts
 
+rm ~/.ssh/known_hosts
 #### set servera
    ssh student@servera sudo hostnamectl set-hostname servera
    ssh student@servera sudo sed  -i '/server/d' /etc/hosts
