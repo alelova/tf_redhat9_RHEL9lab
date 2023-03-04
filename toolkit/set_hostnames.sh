@@ -5,7 +5,9 @@ sudo sed  -i '/server/d' /etc/hosts
 echo $servera | sudo tee --append /etc/hosts
 echo $serverb | sudo tee --append /etc/hosts
 
-rm ~/.ssh/known_hosts
+#rm ~/.ssh/known_hosts
+ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "servera"
+ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "serverb"
 #### set servera
    ssh student@servera sudo hostnamectl set-hostname servera
    ssh student@servera sudo sed  -i '/server/d' /etc/hosts
