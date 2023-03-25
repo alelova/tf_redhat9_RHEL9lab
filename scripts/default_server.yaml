@@ -21,7 +21,7 @@ users:
 
 # Downloads the golang package
 packages:
-  - golang-go
+  - nfs-utils
 
 # Sets the GOPATH & downloads the demo payload
 runcmd:
