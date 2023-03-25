@@ -1,5 +1,6 @@
 #! /bin/bash
-
+echo installing NFS service in serverb
+echo sharing /shares dir
 #### set serverb
 #### set services serverb
    ssh student@serverb sudo dnf install nfs-utils
