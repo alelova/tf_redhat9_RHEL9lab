@@ -20,7 +20,7 @@ Set up your RHEL9 laboratory in aws with terraform.
 Important labs you could practice.
   - Create users and groups and set shared folders.
   - selinux troobleshouting. Set a http server with /example root docs folder.
-  - Containers service installation as a user service, for example mariadb from RedHat9 repo. 
+  - Containers service installation as a user service, for example mariadb from RedHat9 repo: registry.redhat.io/rhel9/mariadb-105 
   - LVM storage creation and extensions, use second device.
   - Add second swap, and include new LVM disks in fstab.
   - NFS directs and indirects mounts from servera mount shared folder in serverb:/
